@@ -10,7 +10,6 @@ public class Target : MonoBehaviour
     public float MaxDirectionChangeTime = 10;
     private float _directionChangeTimer;
     private Vector3 RandomDir;
-    public string ParametrName;
 	// Use this for initialization
 	void Start ()
 	{
@@ -32,6 +31,7 @@ public class Target : MonoBehaviour
 	        _directionChangeTimer = 0;
 	        RandomDir = new Vector3(Random.value, Random.value, Random.value);
 	    }
-	    Center.transform.Rotate(RandomDir*GameManager.Instance.ReturnInfo[ParametrName]);
+		print(Parameters.Names[(int)Parameters.ParamsName.TargetSpeed]);
+		Center.transform.Rotate(RandomDir * GameManager.Instance.GetParameter(Parameters.GetParameter(Parameters.ParamsName.TargetSpeed)));// [Parameters.Names[(int)Parameters.ParamsName.TargetSpeed]]);
     }
 }
