@@ -39,7 +39,7 @@ public class WallsPlacer : MonoBehaviour {
         bool foundPlace = false;
         while (!foundPlace)
         {
-            Vector3 randPoint = Random.onUnitSphere * GameManager.Instance.Radiuos;
+            Vector3 randPoint = Random.onUnitSphere * GameManager.MyInstance.Radious;
             foundPlace = true;
             foreach (var w in Walls)
             {
@@ -52,8 +52,8 @@ public class WallsPlacer : MonoBehaviour {
 
         }
 
-        wall.transform.position =Random.onUnitSphere * GameManager.Instance.Radiuos;
-        wall.transform.LookAt(GameManager.Instance.Center.transform);
+        wall.transform.position =Random.onUnitSphere * GameManager.MyInstance.Radious;
+        wall.transform.LookAt(GameManager.MyInstance.Center.transform);
         Walls.Add(wall);
 
     }

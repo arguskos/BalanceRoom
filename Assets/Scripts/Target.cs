@@ -15,8 +15,8 @@ public class Target : MonoBehaviour
 	{
         Center = new GameObject("TargetCenter");
 	    var obj =Instantiate(TargetPrefab);
-        obj.transform.position = Random.onUnitSphere * GameManager.Instance.Radiuos;
-        obj.transform.LookAt(GameManager.Instance.Center.transform);
+        obj.transform.position = Random.onUnitSphere * GameManager.MyInstance.Radious;
+        obj.transform.LookAt(GameManager.MyInstance.Center.transform);
         obj.transform.parent = Center.transform;
 	    RandomDir = new Vector3(Random.value, Random.value, Random.value);
 
@@ -32,6 +32,6 @@ public class Target : MonoBehaviour
 	        RandomDir = new Vector3(Random.value, Random.value, Random.value);
 	    }
 		print(Parameters.Names[(int)Parameters.ParamsName.TargetSpeed]);
-		Center.transform.Rotate(RandomDir * GameManager.Instance.GetParameter(Parameters.GetParameter(Parameters.ParamsName.TargetSpeed)));// [Parameters.Names[(int)Parameters.ParamsName.TargetSpeed]]);
+		//Center.transform.Rotate(RandomDir * GameManager.Instance.GetParameter(Parameters.GetParameter(Parameters.ParamsName.TargetSpeed)));// [Parameters.Names[(int)Parameters.ParamsName.TargetSpeed]]);
     }
 }
