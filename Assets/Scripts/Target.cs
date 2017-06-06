@@ -31,7 +31,7 @@ public class Target : MonoBehaviour
 	        _directionChangeTimer = 0;
 	        RandomDir = new Vector3(Random.value, Random.value, Random.value);
 	    }
-		print(Parameters.Names[(int)Parameters.ParamsName.TargetSpeed]);
-		//Center.transform.Rotate(RandomDir * GameManager.Instance.GetParameter(Parameters.GetParameter(Parameters.ParamsName.TargetSpeed)));// [Parameters.Names[(int)Parameters.ParamsName.TargetSpeed]]);
+		//print(GameManager.MyInstance.GetParameter(Parameters.ParamsName.TargetSpeed));
+		Center.transform.Rotate(RandomDir * GameManager.MyInstance.GetParameter(Parameters.ParamsName.TargetSpeed));// [Parameters.Names[(int)Parameters.ParamsName.TargetSpeed]]);
     }
 }
