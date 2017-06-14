@@ -9,12 +9,12 @@ public class Parameters : BaseParameters {
 
 	public enum ParamsName
 	{
-		WallsAbount,
+	    NumberWalls,
 		TargetSpeed
 	};
 	 static  Parameters()
 	{
-		Names.Add(ParamsName.WallsAbount);
+		Names.Add(ParamsName.NumberWalls);
 		Names.Add(ParamsName.TargetSpeed);
 
 	}

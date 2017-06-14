@@ -18,17 +18,18 @@ public class WallsPlacer : MonoBehaviour {
     }
 	void Start ()
 	{
-	    for (int i = 0; i < 23; i++)
-	    {
-	        PlaceWall();
-	    }
+	    GameManager.Instance.OnNewMoment += OnNewMoment;
 
-    }
+	}
     public  void  OnNewMoment()
     {
         foreach (var wall in Walls)
         {
             Destroy(wall.gameObject);
+        }
+        for (int i = 0; i < GameManager.Instance.GetParameter(Parameters.ParamsName.NumberWalls); i++)
+        {
+            PlaceWall();
         }
     }
     public void PlaceWall()
@@ -39,7 +40,7 @@ public class WallsPlacer : MonoBehaviour {
         bool foundPlace = false;
         while (!foundPlace)
         {
-            Vector3 randPoint = Random.onUnitSphere * GameManager.MyInstance.Radious;
+            Vector3 randPoint = Random.onUnitSphere * GameManager.Instance.Radious;
             foundPlace = true;
             foreach (var w in Walls)
             {
@@ -52,8 +53,8 @@ public class WallsPlacer : MonoBehaviour {
 
         }
 
-        wall.transform.position =Random.onUnitSphere * GameManager.MyInstance.Radious;
-        wall.transform.LookAt(GameManager.MyInstance.Center.transform);
+        wall.transform.position =Random.onUnitSphere * GameManager.Instance.Radious;
+        wall.transform.LookAt(GameManager.Instance.Center.transform);
         Walls.Add(wall);
 
     }

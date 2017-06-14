@@ -5,16 +5,14 @@ using UnityEngine;
 public class GameManager : GameManagerBase {
 
 	public int Radious =10;
-	public static GameManager MyInstance;
+    public static GameManager Instance;
+    void Awake()
+    {
+        Instance = this;
 
-	void Awake()
-	{
-		if (MyInstance==null)
-		{
-			MyInstance=this;
-		}
-	} 
-	public GameObject Center;
+    }
+
+    public GameObject Center;
 	// Use this for initialization
 	protected override void Start () {
 		base.Start();

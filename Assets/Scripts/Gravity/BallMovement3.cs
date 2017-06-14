@@ -7,10 +7,13 @@ public class BallMovement3 : MonoBehaviour
     public float MoveSpeed = 15;
     private Vector3 _moveDir;
     private Rigidbody _rigid;
+
+    private Vector3 _initPos;
 	// Use this for initialization
 	void Start ()
 	{
 	    _rigid = GetComponent<Rigidbody>();
+	    _initPos = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -37,5 +40,13 @@ public class BallMovement3 : MonoBehaviour
     void FixedUpdate()
     {
         _rigid.MovePosition(_rigid.position+transform.TransformDirection(_moveDir)*MoveSpeed*Time.deltaTime);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+       if (collision.transform.tag.ToLower()=="Wall".ToLower())
+       {
+           transform.position = _initPos;
+       }
     }
 }
